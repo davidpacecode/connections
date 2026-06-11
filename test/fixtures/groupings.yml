@@ -1,0 +1,17 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  puzzle: one
+  common_thread: MyString
+  word_1: MyString
+  word_2: MyString
+  word_3: MyString
+  word_4: MyString
+
+two:
+  puzzle: two
+  common_thread: MyString
+  word_1: MyString
+  word_2: MyString
+  word_3: MyString
+  word_4: MyString

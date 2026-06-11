@@ -10,7 +10,28 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.1].define(version: 2026_06_11_031324) do
+ActiveRecord::Schema[8.1].define(version: 2026_06_11_220333) do
+  create_table "groupings", force: :cascade do |t|
+    t.string "common_thread"
+    t.datetime "created_at", null: false
+    t.integer "puzzle_id", null: false
+    t.datetime "updated_at", null: false
+    t.string "word_1"
+    t.string "word_2"
+    t.string "word_3"
+    t.string "word_4"
+    t.index ["puzzle_id"], name: "index_groupings_on_puzzle_id"
+  end
+
+  create_table "puzzles", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.string "name"
+    t.date "published_on"
+    t.integer "puzzle_number"
+    t.string "submitted_by"
+    t.datetime "updated_at", null: false
+  end
+
   create_table "sessions", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.string "ip_address"
@@ -28,5 +49,6 @@ ActiveRecord::Schema[8.1].define(version: 2026_06_11_031324) do
     t.index ["email_address"], name: "index_users_on_email_address", unique: true
   end
 
+  add_foreign_key "groupings", "puzzles"
   add_foreign_key "sessions", "users"
 end

@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  puzzle_number: 1
+  published_on: 2026-06-11
+  name: MyString
+  submitted_by: MyString
+
+two:
+  puzzle_number: 1
+  published_on: 2026-06-11
+  name: MyString
+  submitted_by: MyString
