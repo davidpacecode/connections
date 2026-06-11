@@ -1,4 +1,7 @@
 class Puzzle < ApplicationRecord
+
+  has_rich_text :hint
+
   has_many :groupings
 
   validates :published_on, uniqueness: true
