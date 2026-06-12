@@ -65,6 +65,6 @@ class GroupingsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def grouping_params
-      params.expect(grouping: [ :puzzle_id, :common_thread, :word_1, :word_2, :word_3, :word_4 ])
+      params.expect(grouping: [ :puzzle_id, :common_thread, :word_1, :word_2, :word_3, :word_4, :color ])
     end
 end

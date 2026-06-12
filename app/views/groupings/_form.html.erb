@@ -22,6 +22,11 @@
   </div>
 
   <div>
+    <%= form.label :color, style: "display: block" %>
+    <%= form.select :color, Grouping.colors.keys.map { |color| [color.capitalize, color] } %>
+  </div>
+
+  <div>
     <%= form.label :word_1, style: "display: block" %>
     <%= form.text_field :word_1 %>
   </div>

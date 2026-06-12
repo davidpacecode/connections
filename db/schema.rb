@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.1].define(version: 2026_06_11_234851) do
+ActiveRecord::Schema[8.1].define(version: 2026_06_12_025124) do
   create_table "action_text_rich_texts", force: :cascade do |t|
     t.text "body"
     t.datetime "created_at", null: false
@@ -50,6 +50,7 @@ ActiveRecord::Schema[8.1].define(version: 2026_06_11_234851) do
   end
 
   create_table "groupings", force: :cascade do |t|
+    t.integer "color", default: 0, null: false
     t.string "common_thread"
     t.datetime "created_at", null: false
     t.integer "puzzle_id", null: false
