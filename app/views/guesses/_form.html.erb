@@ -1,0 +1,47 @@
+<%= form_with(model: guess) do |form| %>
+  <% if guess.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(guess.errors.count, "error") %> prohibited this guess from being saved:</h2>
+
+      <ul>
+        <% guess.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :game_id, style: "display: block" %>
+    <%= form.text_field :game_id %>
+  </div>
+
+  <div>
+    <%= form.label :word_1, style: "display: block" %>
+    <%= form.text_field :word_1 %>
+  </div>
+
+  <div>
+    <%= form.label :word_2, style: "display: block" %>
+    <%= form.text_field :word_2 %>
+  </div>
+
+  <div>
+    <%= form.label :word_3, style: "display: block" %>
+    <%= form.text_field :word_3 %>
+  </div>
+
+  <div>
+    <%= form.label :word_4, style: "display: block" %>
+    <%= form.text_field :word_4 %>
+  </div>
+
+  <div>
+    <%= form.label :grouping_id, style: "display: block" %>
+    <%= form.text_field :grouping_id %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :guesses
+  resources :games
   resources :groupings
   resources :puzzles
   resource :session

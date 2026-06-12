@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @guess %>
+
+<div>
+  <%= link_to "Edit this guess", edit_guess_path(@guess) %> |
+  <%= link_to "Back to guesses", guesses_path %>
+
+  <%= button_to "Destroy this guess", @guess, method: :delete %>
+</div>
