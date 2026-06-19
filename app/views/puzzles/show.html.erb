@@ -2,6 +2,10 @@
 
 <%= render @puzzle %>
 
+<% @puzzle.groupings.each do |grouping| %>
+  <%= render grouping %>
+<% end %>
+
 <div>
   <%= link_to "Edit this puzzle", edit_puzzle_path(@puzzle) %> |
   <%= link_to "Back to puzzles", puzzles_path %>

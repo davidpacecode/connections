@@ -32,6 +32,11 @@
   </div>
 
   <div>
+    <%= form.label :locked, "Locked?", style: "display: block" %>
+    <%= form.check_box :locked %>
+  </div>
+
+  <div>
     <%= form.label :hint, style: "display: block" %>
     <%= form.rich_text_area :hint %>
   </div>

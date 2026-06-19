@@ -65,6 +65,6 @@ class PuzzlesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def puzzle_params
-      params.expect(puzzle: [ :puzzle_number, :published_on, :name, :submitted_by, :hint ])
+      params.expect(puzzle: [ :puzzle_number, :published_on, :name, :submitted_by, :hint, :locked ])
     end
 end

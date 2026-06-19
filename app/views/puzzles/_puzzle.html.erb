@@ -6,7 +6,7 @@
 
   <div>
     <strong>Published on:</strong>
-    <%= puzzle.published_on %>
+    <wa-format-date month="long" day="numeric" year="numeric"><%= puzzle.published_on %></wa-format-date><br>
   </div>
 
   <div>
@@ -17,6 +17,11 @@
   <div>
     <strong>Submitted by:</strong>
     <%= puzzle.submitted_by %>
+  </div>
+
+  <div>
+    <strong>Locked:</strong>
+    <%= puzzle.locked ? "Yup" : "Nope" %>
   </div>
 
   <div>
