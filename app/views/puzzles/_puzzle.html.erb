@@ -1,5 +1,10 @@
 <div id="<%= dom_id puzzle %>">
   <div>
+    <!-- <strong class="wa-heading-l">Name:</strong> -->
+    <strong class="wa-heading-l"><%= puzzle.name %></strong>
+  </div>
+
+  <div>
     <strong>Puzzle number:</strong>
     <%= puzzle.puzzle_number %>
   </div>
@@ -7,11 +12,6 @@
   <div>
     <strong>Published on:</strong>
     <wa-format-date month="long" day="numeric" year="numeric"><%= puzzle.published_on %></wa-format-date><br>
-  </div>
-
-  <div>
-    <strong>Name:</strong>
-    <%= puzzle.name %>
   </div>
 
   <div>
