@@ -12,40 +12,43 @@
       </div>
     <% end %>
 
-    <div class="wa-cluster wa-gap-s label-on-left">
-      <wa-input name="name" value="<%= puzzle.name %>" label="Name" maxlength="20"></wa-input>
-      <%# form.label :name %>
-      <%# form.text_field :name %>
-    </div>
+    <div class="wa-stack">
+      <div class="wa-flank wa-gap-s label-on-left">
+        <wa-input size="s" name="puzzle[name]" value="<%= puzzle.name %>" label="Name"></wa-input>
+        <%# form.label :name %>
+        <%# form.text_field :name %>
+      </div>
 
-    <div class="wa-cluster wa-gap-s">
-      <%= form.label :puzzle_number %>
-      <%= form.number_field :puzzle_number %>
-    </div>
+      <div class="wa-flank wa-gap-s label-on-left">
+        <wa-input size="s" name="puzzle[puzzle_number]" value="<%= puzzle.puzzle_number %>" label="Puzzle Number"></wa-input>
+        <%# form.label :puzzle_number %>
+        <%# form.number_field :puzzle_number %>
+      </div>
 
-    <div class="wa-cluster">
-      <%= form.label :published_on, style: "display: block" %>
-      <%= form.date_field :published_on %>
-    </div>
+      <div class="wa-cluster">
+        <%= form.label :published_on, style: "display: block" %>
+        <%= form.date_field :published_on %>
+      </div>
 
-    <div>
-      <%= form.label :submitted_by, style: "display: block" %>
-      <%= form.text_field :submitted_by %>
-    </div>
+      <div>
+        <%= form.label :submitted_by, style: "display: block" %>
+        <%= form.text_field :submitted_by %>
+      </div>
 
-    <div>
-      <%= form.label :locked, "Locked?", style: "display: block" %>
-      <%= form.check_box :locked %>
-    </div>
+      <div>
+        <%= form.label :locked, "Locked?", style: "display: block" %>
+        <%= form.check_box :locked %>
+      </div>
 
-    <div>
-      <%= form.label :hint, style: "display: block" %>
-      <%= form.rich_text_area :hint %>
-    </div>
+      <div>
+        <%= form.label :hint, style: "display: block" %>
+        <%= form.rich_text_area :hint %>
+      </div>
 
-    <div class="wa-cluster wa-gap-3xs">
-      <%= form.submit %>
-      <wa-button href="<%= puzzle_path(puzzle) %>">Nevermind</wa-button>
+      <div class="wa-cluster wa-gap-3xs">
+        <%= form.submit %>
+        <wa-button href="<%= puzzle_path(puzzle) %>">Nevermind</wa-button>
+      </div>
     </div>
   <% end %>
 <% end %>
