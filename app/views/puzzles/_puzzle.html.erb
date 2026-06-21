@@ -1,27 +1,46 @@
 <div id="<%= dom_id puzzle %>">
-  <div>
-    <!-- <strong class="wa-heading-l">Name:</strong> -->
-    <strong class="wa-heading-l"><%= puzzle.name %></strong>
-  </div>
 
-  <div>
-    <strong>Puzzle number:</strong>
-    <%= puzzle.puzzle_number %>
-  </div>
+  <div class="wa-grid puzzle-grid-container">
+    <div>
+      <strong>Puzzle name:</strong>
+    </div>
 
-  <div>
-    <strong>Published on:</strong>
-    <wa-format-date month="long" day="numeric" year="numeric"><%= puzzle.published_on %></wa-format-date><br>
-  </div>
+    <div>
+      <%= puzzle.name %>
+    </div>
 
-  <div>
-    <strong>Submitted by:</strong>
-    <%= puzzle.submitted_by %>
-  </div>
+    <div>
+      <strong>Puzzle number:</strong>
+    </div>
 
-  <div>
-    <strong>Locked:</strong>
-    <%= puzzle.locked ? "Yup" : "Nope" %>
+    <div>
+      <%= puzzle.puzzle_number %>
+    </div>
+
+    <div>
+      <strong>Published on:</strong>
+    </div>
+
+    <div>
+      <wa-format-date month="long" day="numeric" year="numeric"><%= puzzle.published_on %></wa-format-date><br>
+    </div>
+
+    <div>
+      <strong>Submitted by:</strong>
+    </div>
+
+    <div>
+      <%= puzzle.submitted_by %>
+    </div>
+
+    <div>
+      <strong>Locked:</strong>
+    </div>
+
+    <div>
+      <%= puzzle.locked ? "Yup" : "Nope" %>
+    </div>
+
   </div>
 
   <div>

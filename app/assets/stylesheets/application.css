@@ -9,6 +9,11 @@
  * Consider organizing styles into separate files for maintainability.
  */
 
+.puzzle-grid-container {
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(5, 1fr);
+}
+
 .label-on-left {
   display: grid;
   grid-template-columns: auto 1fr;
