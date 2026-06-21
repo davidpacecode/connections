@@ -13,31 +13,48 @@
     <% end %>
 
     <div class="wa-stack">
-      <div class="wa-flank wa-gap-s label-on-left">
-        <wa-input size="s" name="puzzle[name]" value="<%= puzzle.name %>" label="Name"></wa-input>
-        <%# form.label :name %>
-        <%# form.text_field :name %>
-      </div>
-      
-      <span>Puzzle Number = <%= puzzle.puzzle_number %></span>
-      <div class="wa-flank wa-gap-s label-on-left">
-        <%= form.label :puzzle_number %>
-        <%= form.number_field :puzzle_number %>
-      </div>
+      <div class="wa-grid puzzle-grid-container">
 
-      <div class="wa-cluster">
-        <%= form.label :published_on, style: "display: block" %>
-        <%= form.date_field :published_on %>
-      </div>
+        <div>
+          <%= form.label :name %>
+        </div>
 
-      <div>
-        <%= form.label :submitted_by, style: "display: block" %>
-        <%= form.text_field :submitted_by %>
-      </div>
+        <div>
+          <%= form.text_field :name %>
+        </div>
 
-      <div>
-        <%= form.label :locked, "Locked?", style: "display: block" %>
-        <%= form.check_box :locked %>
+        <div>
+          <%= form.label :puzzle_number %>
+        </div>
+
+        <div>
+          <%= form.number_field :puzzle_number %>
+        </div>
+
+        <div>
+          <%= form.label :published_on, style: "display: block" %>
+        </div>
+
+        <div>
+          <%= form.date_field :published_on %>
+        </div>
+
+        <div>
+          <%= form.label :submitted_by, style: "display: block" %>
+        </div>
+
+        <div>
+          <%= form.text_field :submitted_by %>
+        </div>
+
+        <div>
+          <%= form.label :locked, "Locked?", style: "display: block" %>
+        </div>
+
+        <div>
+          <%= form.check_box :locked %>
+        </div>
+
       </div>
 
       <div>
