@@ -18,11 +18,11 @@
         <%# form.label :name %>
         <%# form.text_field :name %>
       </div>
-
+      
+      <span>Puzzle Number = <%= puzzle.puzzle_number %></span>
       <div class="wa-flank wa-gap-s label-on-left">
-        <wa-input size="s" name="puzzle[puzzle_number]" value="<%= puzzle.puzzle_number %>" label="Puzzle Number"></wa-input>
-        <%# form.label :puzzle_number %>
-        <%# form.number_field :puzzle_number %>
+        <%= form.label :puzzle_number %>
+        <%= form.number_field :puzzle_number %>
       </div>
 
       <div class="wa-cluster">
@@ -47,7 +47,9 @@
 
       <div class="wa-cluster wa-gap-3xs">
         <%= form.submit %>
-        <wa-button href="<%= puzzle_path(puzzle) %>">Nevermind</wa-button>
+        <% if puzzle.persisted? %>
+          <wa-button href="<%= puzzle_path(puzzle) %>">Nevermind</wa-button>
+        <% end %>
       </div>
     </div>
   <% end %>

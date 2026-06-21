@@ -12,7 +12,7 @@ class PuzzlesController < ApplicationController
 
   # GET /puzzles/new
   def new
-    @puzzle = Puzzle.new
+    @puzzle = Puzzle.new(puzzle_number:Puzzle.maximum(:puzzle_number).to_i + 1, published_on: Date.today)
   end
 
   # GET /puzzles/1/edit
