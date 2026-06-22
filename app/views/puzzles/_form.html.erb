@@ -13,8 +13,8 @@
     <% end %>
 
     <div class="wa-stack">
-      <div class="wa-grid puzzle-grid-container">
 
+      <div class="wa-flank" style="--flank-size: 200px;">
         <div>
           <%= form.label :name %>
         </div>
@@ -22,7 +22,9 @@
         <div>
           <%= form.text_field :name %>
         </div>
+      </div>
 
+      <div class="wa-flank" style="--flank-size: 200px;">
         <div>
           <%= form.label :puzzle_number %>
         </div>
@@ -30,7 +32,9 @@
         <div>
           <%= form.number_field :puzzle_number %>
         </div>
+      </div>
 
+      <div class="wa-flank" style="--flank-size: 200px;">
         <div>
           <%= form.label :published_on, style: "display: block" %>
         </div>
@@ -38,7 +42,9 @@
         <div>
           <%= form.date_field :published_on %>
         </div>
+      </div>
 
+      <div class="wa-flank" style="--flank-size: 200px;">
         <div>
           <%= form.label :submitted_by, style: "display: block" %>
         </div>
@@ -46,7 +52,9 @@
         <div>
           <%= form.text_field :submitted_by %>
         </div>
+      </div>
 
+      <div class="wa-flank" style="--flank-size: 200px;">
         <div>
           <%= form.label :locked, "Locked?", style: "display: block" %>
         </div>
@@ -54,7 +62,6 @@
         <div>
           <%= form.check_box :locked %>
         </div>
-
       </div>
 
       <div>
