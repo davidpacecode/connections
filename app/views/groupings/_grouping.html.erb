@@ -1,37 +1,68 @@
 <div id="<%= dom_id grouping %>">
-  <div>
-    <strong>Puzzle:</strong>
-    <%= grouping.puzzle_id %>
-  </div>
 
-  <div>
-    <strong>Common thread:</strong>
-    <%= grouping.common_thread %>
-  </div>
+  <div class="wa-stack">
 
-  <div>
-    <strong>Color:</strong>
-    <%= grouping.color %>
-  </div>
+    <div class="wa-flank" style="--flank-size: 200px;">
+      <div>
+        <strong>Puzzle:</strong>
+      </div>
+      <div>
+        <%= grouping.puzzle_id %>
+      </div>
+    </div>
 
-  <div>
-    <strong>Word 1:</strong>
-    <%= grouping.word_1 %>
-  </div>
+    <div class="wa-flank" style="--flank-size: 200px;">
+      <div>
+        <strong>Common thread:</strong>
+      </div>
+      <div>
+        <%= grouping.common_thread %>
+      </div>
+    </div>
 
-  <div>
-    <strong>Word 2:</strong>
-    <%= grouping.word_2 %>
-  </div>
+    <div class="wa-flank" style="--flank-size: 200px;">
+      <div>
+        <strong>Color:</strong>
+      </div>
+      <div>
+        <%= grouping.color %>
+      </div>
+    </div>
 
-  <div>
-    <strong>Word 3:</strong>
-    <%= grouping.word_3 %>
-  </div>
+    <div class="wa-flank" style="--flank-size: 200px;">
+      <div>
+        <strong>Word 1:</strong>
+      </div>
+      <div>
+        <%= grouping.word_1 %>
+      </div>
+    </div>
 
-  <div>
-    <strong>Word 4:</strong>
-    <%= grouping.word_4 %>
-  </div>
+    <div class="wa-flank" style="--flank-size: 200px;">
+      <div>
+        <strong>Word 2:</strong>
+      </div>
+      <div>
+        <%= grouping.word_2 %>
+      </div>
+    </div>
 
+    <div class="wa-flank" style="--flank-size: 200px;">
+      <div>
+        <strong>Word 3:</strong>
+      </div>
+      <div>
+        <%= grouping.word_3 %>
+      </div>
+    </div>
+
+    <div class="wa-flank" style="--flank-size: 200px;">
+      <div>
+        <strong>Word 4:</strong>
+      </div>
+      <div>
+        <%= grouping.word_4 %>
+      </div>
+    </div>
+  </div>
 </div>
