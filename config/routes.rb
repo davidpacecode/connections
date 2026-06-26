@@ -1,8 +1,9 @@
 Rails.application.routes.draw do
   resources :guesses
   resources :games
-  resources :groupings
-  resources :puzzles
+  resources :puzzles do
+    resources :groupings
+  end
   resource :session
   resources :passwords, param: :token
   get "pages/home"

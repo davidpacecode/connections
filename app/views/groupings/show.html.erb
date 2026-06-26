@@ -3,8 +3,8 @@
 <%= render @grouping %>
 
 <div>
-  <%= link_to "Edit this grouping", edit_grouping_path(@grouping) %> |
-  <%= link_to "Back to groupings", groupings_path %>
+  <%= link_to "Edit this grouping", edit_puzzle_grouping_path(@grouping) %> |
+  <%= link_to "Back to groupings", puzzle_groupings_path %>
 
-  <%= button_to "Destroy this grouping", @grouping, method: :delete %>
+  <%= button_to "Destroy this grouping", [@puzzle, @grouping], method: :delete %>
 </div>

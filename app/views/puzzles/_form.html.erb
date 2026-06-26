@@ -1,4 +1,6 @@
-<%= turbo_frame_tag puzzle do %>
+<% if puzzle.persisted? %>
+  <%= turbo_frame_tag puzzle do %>
+<% end %>
   <%= form_with(model: puzzle) do |form| %>
     <% if puzzle.errors.any? %>
       <div style="color: red">
@@ -76,5 +78,7 @@
         <% end %>
       </div>
     </div>
+  <% end %>
+<% if puzzle.persisted? %>
   <% end %>
 <% end %>

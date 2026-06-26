@@ -1,5 +1,5 @@
 class GroupingsController < ApplicationController
-  before_action :set_grouping, only: %i[ show edit update destroy ]
+  before_action :set_puzzle_and_grouping, only: %i[ show edit update destroy ]
 
   # GET /groupings or /groupings.json
   def index
@@ -25,7 +25,7 @@ class GroupingsController < ApplicationController
 
     respond_to do |format|
       if @grouping.save
-        format.html { redirect_to @grouping, notice: "Grouping was successfully created." }
+        format.html { redirect_to [@puzzle, @grouping], notice: "Grouping was successfully created." }
         format.json { render :show, status: :created, location: @grouping }
       else
         format.html { render :new, status: :unprocessable_content }
@@ -38,7 +38,7 @@ class GroupingsController < ApplicationController
   def update
     respond_to do |format|
       if @grouping.update(grouping_params)
-        format.html { redirect_to @grouping, notice: "Grouping was successfully updated.", status: :see_other }
+        format.html { redirect_to @puzzle, notice: "Grouping was successfully updated.", status: :see_other }
         format.json { render :show, status: :ok, location: @grouping }
       else
         format.html { render :edit, status: :unprocessable_content }
@@ -52,14 +52,15 @@ class GroupingsController < ApplicationController
     @grouping.destroy!
 
     respond_to do |format|
-      format.html { redirect_to groupings_path, notice: "Grouping was successfully destroyed.", status: :see_other }
+      format.html { redirect_to puzzle_groupings_path, notice: "Grouping was successfully destroyed.", status: :see_other }
       format.json { head :no_content }
     end
   end
 
   private
     # Use callbacks to share common setup or constraints between actions.
-    def set_grouping
+    def set_puzzle_and_grouping
+      @puzzle = Puzzle.find(params.expect(:puzzle_id))
       @grouping = Grouping.find(params.expect(:id))
     end
 

@@ -8,7 +8,10 @@
 
   <span class="wa-heading-l">Groupings</span>
   <% @puzzle.groupings.each do |grouping| %>
-    <%= render grouping %>
+    <%= turbo_frame_tag "#{@puzzle.id}_#{grouping.id}" do %>
+      <%= render grouping %>
+      <%= link_to "Edit this grouping", edit_puzzle_grouping_path(@puzzle, grouping) %>
+    <% end %>
   <% end %>
 
   <div>
