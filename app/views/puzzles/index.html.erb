@@ -5,12 +5,25 @@
 <h1>Puzzles</h1>
 
 <div id="puzzles">
-  <% @puzzles.each do |puzzle| %>
-    <%= render puzzle %>
-    <p>
-      <%= link_to "Show this puzzle", puzzle %>
-    </p>
-  <% end %>
+  <div class="wa-grid" style="grid-template-columns: repeat(5, 1fr);">
+    <div><span class="wa-font-weight-bold">No.</span></div>
+    <div><span class="wa-font-weight-bold">Title</span></div>
+    <div><span class="wa-font-weight-bold">Created by</span></div>
+    <div><span class="wa-font-weight-bold">Submitted on</span></div>
+    <div></div>
+    <% @puzzles.each do |puzzle| %>
+      <span><%= puzzle.puzzle_number %></span>
+      <div><span><%= puzzle.name.humanize %></span></div>
+      <div><span><%= puzzle.submitted_by %></span></div>
+      <div><span><%= puzzle.published_on %></span></div>
+      <div>
+          <%= link_to puzzle do %><wa-tag size="s" pill>View/Edit</wa-tag><% end -%>
+          <%= link_to puzzle, data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } do %>
+            <wa-tag size="s" pill>Delete</wa-tag><% end -%>
+          <%= link_to root_path do %><wa-tag variant="success" size="s" pill>Play!</wa-tag><% end -%>
+      </div>
+    <% end %>
+  </div>
 </div>
 
-<%= link_to "New puzzle", new_puzzle_path %>
+<%= link_to new_puzzle_path do %><wa-tag variant="success" size="s" pill>Create puzzle</wa-tag><% end -%>

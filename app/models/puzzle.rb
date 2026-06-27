@@ -2,9 +2,9 @@ class Puzzle < ApplicationRecord
 
   has_rich_text :hint
 
-  has_many :groupings
+  has_many :groupings, dependent: :destroy
 
-  validates :published_on, uniqueness: true
+  validates :published_on, presence: true
   validates :puzzle_number, uniqueness: true
   validates :name, :submitted_by, presence: true
 
