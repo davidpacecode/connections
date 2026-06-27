@@ -1,84 +1,78 @@
-<% if puzzle.persisted? %>
-  <%= turbo_frame_tag puzzle do %>
-<% end %>
-  <%= form_with(model: puzzle) do |form| %>
-    <% if puzzle.errors.any? %>
-      <div style="color: red">
-        <h2><%= pluralize(puzzle.errors.count, "error") %> prohibited this puzzle from being saved:</h2>
+<%= form_with(model: puzzle) do |form| %>
+  <% if puzzle.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(puzzle.errors.count, "error") %> prohibited this puzzle from being saved:</h2>
 
-        <ul>
-          <% puzzle.errors.each do |error| %>
-            <li><%= error.full_message %></li>
-          <% end %>
-        </ul>
-      </div>
-    <% end %>
+      <ul>
+        <% puzzle.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
 
-    <div class="wa-stack">
+  <div class="wa-stack">
 
-      <div class="wa-flank" style="--flank-size: 200px;">
-        <div>
-          <%= form.label :name %>
-        </div>
-
-        <div>
-          <%= form.text_field :name %>
-        </div>
-      </div>
-
-      <div class="wa-flank" style="--flank-size: 200px;">
-        <div>
-          <%= form.label :puzzle_number %>
-        </div>
-
-        <div>
-          <%= form.number_field :puzzle_number %>
-        </div>
-      </div>
-
-      <div class="wa-flank" style="--flank-size: 200px;">
-        <div>
-          <%= form.label :published_on, style: "display: block" %>
-        </div>
-
-        <div>
-          <%= form.date_field :published_on %>
-        </div>
-      </div>
-
-      <div class="wa-flank" style="--flank-size: 200px;">
-        <div>
-          <%= form.label :submitted_by, style: "display: block" %>
-        </div>
-
-        <div>
-          <%= form.text_field :submitted_by %>
-        </div>
-      </div>
-
-      <div class="wa-flank" style="--flank-size: 200px;">
-        <div>
-          <%= form.label :locked, "Locked?", style: "display: block" %>
-        </div>
-
-        <div>
-          <%= form.check_box :locked %>
-        </div>
+    <div class="wa-flank" style="--flank-size: 200px;">
+      <div>
+        <%= form.label :name %>
       </div>
 
       <div>
-        <%= form.label :hint, style: "display: block" %>
-        <%= form.rich_text_area :hint %>
-      </div>
-
-      <div class="wa-cluster wa-gap-3xs">
-        <%= form.submit %>
-        <% if puzzle.persisted? %>
-          <wa-button href="<%= puzzle_path(puzzle) %>">Nevermind</wa-button>
-        <% end %>
+        <%= form.text_field :name %>
       </div>
     </div>
-  <% end %>
-<% if puzzle.persisted? %>
-  <% end %>
+
+    <div class="wa-flank" style="--flank-size: 200px;">
+      <div>
+        <%= form.label :puzzle_number %>
+      </div>
+
+      <div>
+        <%= form.number_field :puzzle_number %>
+      </div>
+    </div>
+
+    <div class="wa-flank" style="--flank-size: 200px;">
+      <div>
+        <%= form.label :published_on, style: "display: block" %>
+      </div>
+
+      <div>
+        <%= form.date_field :published_on %>
+      </div>
+    </div>
+
+    <div class="wa-flank" style="--flank-size: 200px;">
+      <div>
+        <%= form.label :submitted_by, style: "display: block" %>
+      </div>
+
+      <div>
+        <%= form.text_field :submitted_by %>
+      </div>
+    </div>
+
+    <div class="wa-flank" style="--flank-size: 200px;">
+      <div>
+        <%= form.label :locked, "Locked?", style: "display: block" %>
+      </div>
+
+      <div>
+        <%= form.check_box :locked %>
+      </div>
+    </div>
+
+    <div>
+      <%= form.label :hint, style: "display: block" %>
+      <%= form.rich_text_area :hint %>
+    </div>
+
+    <div class="wa-cluster wa-gap-3xs">
+      <%= form.submit %>
+      <% if puzzle.persisted? %>
+        <wa-button href="<%= puzzle_path(puzzle) %>">Nevermind</wa-button>
+      <% end %>
+    </div>
+  </div>
 <% end %>

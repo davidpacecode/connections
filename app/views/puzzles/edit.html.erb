@@ -2,7 +2,9 @@
 
 <h1>Editing puzzle</h1>
 
-<%= render "form", puzzle: @puzzle %>
+<%= turbo_frame_tag @puzzle do %>
+  <%= render "form", puzzle: @puzzle %>
+<% end %>
 
 <br>
 
