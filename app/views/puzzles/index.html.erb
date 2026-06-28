@@ -6,21 +6,21 @@
 
 <div id="puzzles">
   <div class="wa-grid" style="grid-template-columns: repeat(5, 1fr);">
-    <div><span class="wa-font-weight-bold">No.</span></div>
-    <div><span class="wa-font-weight-bold">Title</span></div>
-    <div><span class="wa-font-weight-bold">Created by</span></div>
-    <div><span class="wa-font-weight-bold">Submitted on</span></div>
+    <span class="wa-font-weight-bold">No.</span>
+    <span class="wa-font-weight-bold">Title</span>
+    <span class="wa-font-weight-bold">Created by</span>
+    <span class="wa-font-weight-bold">Submitted on</span>
     <div></div>
     <% @puzzles.each do |puzzle| %>
       <span><%= puzzle.puzzle_number %></span>
-      <div><span><%= puzzle.name.humanize %></span></div>
-      <div><span><%= puzzle.submitted_by %></span></div>
-      <div><span><%= puzzle.published_on %></span></div>
+      <span><%= puzzle.name.humanize %></span>
+      <span><%= puzzle.submitted_by %></span>
+      <span><wa-format-date date="<%= puzzle.published_on %>" month="long" day="numeric" year="numeric"></wa-format-date></span>
       <div>
-          <%= link_to puzzle do %><wa-tag size="s" pill>View/Edit</wa-tag><% end -%>
-          <%= link_to puzzle, data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } do %>
-            <wa-tag size="s" pill>Delete</wa-tag><% end -%>
-          <%= link_to root_path do %><wa-tag variant="success" size="s" pill>Play!</wa-tag><% end -%>
+        <%= link_to puzzle do %><wa-tag size="s" pill>View/Edit</wa-tag><% end -%>
+        <%= link_to puzzle, data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } do %>
+          <wa-tag size="s" pill>Delete</wa-tag><% end -%>
+        <%= link_to root_path do %><wa-tag variant="success" size="s" pill>Play!</wa-tag><% end -%>
       </div>
     <% end %>
   </div>

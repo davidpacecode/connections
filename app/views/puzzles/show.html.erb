@@ -7,18 +7,34 @@
   <% end %>
 
   <span class="wa-heading-l">Groupings</span>
+</div>
+
+<div class="wa-grid" style="grid-template-columns: repeat(7, 1fr);">
+  <span class="wa-font-weight-bold">Color</span>
+  <span class="wa-font-weight-bold">Common Thread</span>
+  <span class="wa-font-weight-bold">Word 1</span>
+  <span class="wa-font-weight-bold">Word 2</span>
+  <span class="wa-font-weight-bold">Word 3</span>
+  <span class="wa-font-weight-bold">Word 4</span>
+  <div></div>
+
   <% @puzzle.groupings.each do |grouping| %>
-    <%= turbo_frame_tag "#{@puzzle.id}_#{grouping.id}" do %>
-      <%= render grouping %>
-      <%= link_to "Edit this grouping", edit_puzzle_grouping_path(@puzzle, grouping) %>
+    <%= turbo_frame_tag "#{@puzzle.id}_#{grouping.id}", style: "display: contents;" do %>
+      <span><%= grouping.color %></span>
+      <span><%= grouping.common_thread %></span>
+      <span><%= grouping.word_1 %></span>
+      <span><%= grouping.word_2 %></span>
+      <span><%= grouping.word_3 %></span>
+      <span><%= grouping.word_4 %></span>
+      <div>
+        <%= link_to "Edit this grouping", edit_puzzle_grouping_path(@puzzle, grouping) %>
+      </div>
     <% end %>
   <% end %>
+</div>
 
-  <div>
-    <%= link_to "Edit this puzzle", edit_puzzle_path(@puzzle) %> |
-    <%= link_to "Back to puzzles", puzzles_path %>
-
-    <%= button_to "Destroy this puzzle", @puzzle, method: :delete %>
-  </div>
-
+<div>
+  <%= link_to "Edit this puzzle", edit_puzzle_path(@puzzle) %> |
+  <%= link_to "Back to puzzles", puzzles_path %>
+  <%= button_to "Destroy this puzzle", @puzzle, method: :delete %>
 </div>
