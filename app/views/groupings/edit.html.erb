@@ -2,7 +2,9 @@
 
 <h1>Editing grouping</h1>
 
-<%= render "form", grouping: @grouping %>
+<%= turbo_frame_tag "#{@puzzle.id}_#{@grouping.id}", style: "display: contents;" do %>
+  <%= render "form", grouping: @grouping %>
+<% end %>
 
 <br>
 
