@@ -1,93 +1,24 @@
-  <%= form_with(model: [@puzzle, grouping]) do |form| %>
-    <% if grouping.errors.any? %>
-      <div style="color: red">
-        <h2><%= pluralize(grouping.errors.count, "error") %> prohibited this grouping from being saved:</h2>
+<%= form_with(model: [@puzzle, grouping], id: "edit_#{@puzzle.id}_#{grouping.id}", style: "display: none;") do |form| %>
+  <% if grouping.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(grouping.errors.count, "error") %> prohibited this grouping from being saved:</h2>
 
-        <ul>
-          <% grouping.errors.each do |error| %>
-            <li><%= error.full_message %></li>
-          <% end %>
-        </ul>
-      </div>
-    <% end %>
-
-    <span><%= form.select :color, Grouping.colors.keys.map { |color| [color.capitalize, color] } %></span>
-    <span><%= form.text_field :common_thread %></span>
-    <span><%= form.text_field :word_1 %></span>
-    <span><%= form.text_field :word_2 %></span>
-    <span><%= form.text_field :word_3 %></span>
-    <span><%= form.text_field :word_4 %></span>
-    <div>
-      <%= form.submit %>
-      <wa-button href="<%= puzzle_path(@puzzle) %>">Nevermind</wa-button>
+      <ul>
+        <% grouping.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
     </div>
-
-
-    <!-- <div class="wa-flank" style="--flank-size: 200px;">
-      <div>
-        <%= form.label :puzzle_id, style: "display: block" %>
-      </div>
-      <div>
-        <%= form.text_field :puzzle_id %>
-      </div>
-    </div>
-
-    <div class="wa-flank" style="--flank-size: 200px;">
-      <div>
-        <%= form.label :common_thread, style: "display: block" %>
-      </div>
-      <div>
-        <%= form.text_field :common_thread %>
-      </div>
-    </div>
-
-    <div class="wa-flank" style="--flank-size: 200px;">
-      <div>
-        <%= form.label :color, style: "display: block" %>
-      </div>
-      <div>
-        <%= form.select :color, Grouping.colors.keys.map { |color| [color.capitalize, color] } %>
-      </div>
-    </div>
-
-    <div class="wa-flank" style="--flank-size: 200px;">
-      <div>
-        <%= form.label :word_1, style: "display: block" %>
-      </div>
-      <div>
-        <%= form.text_field :word_1 %>
-      </div>
-    </div>
-
-    <div class="wa-flank" style="--flank-size: 200px;">
-      <div>
-        <%= form.label :word_2, style: "display: block" %>
-      </div>
-      <div>
-        <%= form.text_field :word_2 %>
-      </div>
-    </div>
-
-    <div class="wa-flank" style="--flank-size: 200px;">
-      <div>
-        <%= form.label :word_3, style: "display: block" %>
-      </div>
-      <div>
-        <%= form.text_field :word_3 %>
-      </div>
-    </div>
-
-    <div class="wa-flank" style="--flank-size: 200px;">
-      <div>
-        <%= form.label :word_4, style: "display: block" %>
-      </div>
-      <div>
-        <%= form.text_field :word_4 %>
-      </div>
-    </div>
-
-    <div>
-      <%= form.submit %>
-      <wa-button href="<%= puzzle_path(@puzzle) %>">Nevermind</wa-button>
-    </div> -->
   <% end %>
+<% end %>
+
+<span><%= select_tag :color, Grouping.colors.keys.map { |color| [color.capitalize, color] }, form: "edit_#{@puzzle.id}_#{grouping.id}" %></span>
+<span><%= text_field_tag :common_thread, form: "edit_#{@puzzle.id}_#{grouping.id}" %></span>
+<span><%= text_field_tag :word_1, form: "edit_#{@puzzle.id}_#{grouping.id}" %></span>
+<span><%= text_field_tag :word_2, form: "edit_#{@puzzle.id}_#{grouping.id}" %></span>
+<span><%= text_field_tag :word_3, form: "edit_#{@puzzle.id}_#{grouping.id}" %></span>
+<span><%= text_field_tag :word_4, form: "edit_#{@puzzle.id}_#{grouping.id}" %></span>
+<div>
+  <%= submit_tag form: "edit_#{@puzzle.id}_#{grouping.id}" %>
+  <wa-button href="<%= puzzle_path(@puzzle) %>" form="<%= "edit_#{@puzzle.id}_#{grouping.id}" %>">Nevermind</wa-button>
+</div>
