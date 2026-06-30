@@ -1,3 +1,14 @@
+<span><%= select_tag "grouping[color]", options_for_select(Grouping.colors.keys.map { |color| [color.capitalize, color] }, grouping.color), form: "edit_#{@puzzle.id}_#{grouping.id}" %></span>
+<span><%= text_field_tag "grouping[common_thread]", grouping.common_thread, form: "edit_#{@puzzle.id}_#{grouping.id}" %></span>
+<span><%= text_field_tag "grouping[word_1]", grouping.word_1, form: "edit_#{@puzzle.id}_#{grouping.id}" %></span>
+<span><%= text_field_tag "grouping[word_2]", grouping.word_2, form: "edit_#{@puzzle.id}_#{grouping.id}" %></span>
+<span><%= text_field_tag "grouping[word_3]", grouping.word_3, form: "edit_#{@puzzle.id}_#{grouping.id}" %></span>
+<span><%= text_field_tag "grouping[word_4]", grouping.word_4, form: "edit_#{@puzzle.id}_#{grouping.id}" %></span>
+<div>
+  <%= submit_tag "Submit", form: "edit_#{@puzzle.id}_#{grouping.id}" %>
+  <wa-button href="<%= puzzle_path(@puzzle) %>" form="<%= "edit_#{@puzzle.id}_#{grouping.id}" %>">Nevermind</wa-button>
+</div>
+
 <%= form_with(model: [@puzzle, grouping], id: "edit_#{@puzzle.id}_#{grouping.id}", style: "display: none;") do |form| %>
   <% if grouping.errors.any? %>
     <div style="color: red">
@@ -12,13 +23,3 @@
   <% end %>
 <% end %>
 
-<span><%= select_tag :color, Grouping.colors.keys.map { |color| [color.capitalize, color] }, form: "edit_#{@puzzle.id}_#{grouping.id}" %></span>
-<span><%= text_field_tag :common_thread, form: "edit_#{@puzzle.id}_#{grouping.id}" %></span>
-<span><%= text_field_tag :word_1, form: "edit_#{@puzzle.id}_#{grouping.id}" %></span>
-<span><%= text_field_tag :word_2, form: "edit_#{@puzzle.id}_#{grouping.id}" %></span>
-<span><%= text_field_tag :word_3, form: "edit_#{@puzzle.id}_#{grouping.id}" %></span>
-<span><%= text_field_tag :word_4, form: "edit_#{@puzzle.id}_#{grouping.id}" %></span>
-<div>
-  <%= submit_tag form: "edit_#{@puzzle.id}_#{grouping.id}" %>
-  <wa-button href="<%= puzzle_path(@puzzle) %>" form="<%= "edit_#{@puzzle.id}_#{grouping.id}" %>">Nevermind</wa-button>
-</div>
