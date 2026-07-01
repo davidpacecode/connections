@@ -17,9 +17,8 @@
       <span><%= puzzle.submitted_by %></span>
       <span><wa-format-date date="<%= puzzle.published_on %>" month="long" day="numeric" year="numeric"></wa-format-date></span>
       <div>
-        <%= link_to puzzle do %><wa-tag size="s" pill>View/Edit</wa-tag><% end -%>
-        <%= link_to puzzle, data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } do %>
-          <wa-tag size="s" pill>Delete</wa-tag><% end -%>
+        <%= link_to "View", puzzle, class: "wa-link-plain" %>
+        <%= link_to "Delete", puzzle, class: "wa-link-plain", data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
         <%= link_to root_path do %><wa-tag variant="success" size="s" pill>Play!</wa-tag><% end -%>
       </div>
     <% end %>

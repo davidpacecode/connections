@@ -20,14 +20,15 @@
 
   <% @puzzle.groupings.each do |grouping| %>
     <%= turbo_frame_tag "#{@puzzle.id}_#{grouping.id}", style: "display: contents;" do %>
-      <span><%= grouping.color %></span>
+      <wa-badge style="font-size: var(--wa-font-size-m); background-color: var(--wa-color-<%= grouping.color %>-90);">
+        <%= grouping.color.titleize %></wa-badge>
       <span><%= grouping.common_thread %></span>
       <span><%= grouping.word_1 %></span>
       <span><%= grouping.word_2 %></span>
       <span><%= grouping.word_3 %></span>
       <span><%= grouping.word_4 %></span>
       <div>
-        <%= link_to "Edit this grouping", edit_puzzle_grouping_path(@puzzle, grouping) %>
+        <%= link_to "Edit", edit_puzzle_grouping_path(@puzzle, grouping), class: "wa-link-plain wa-body-m wa-font-weight-bold" %>
       </div>
     <% end %>
   <% end %>

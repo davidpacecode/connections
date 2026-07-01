@@ -13,8 +13,10 @@ class Puzzle < ApplicationRecord
   private
 
     def create_groupings
-      4.times do
-        self.groupings.create!
+      Grouping.colors.keys.each do |color|
+        grouping = self.groupings.create!
+        grouping.color = color
+        grouping.save
       end
     end
 end
