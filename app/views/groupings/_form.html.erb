@@ -13,18 +13,18 @@
 <div>
   <%= submit_tag "Submit", form: "edit_#{@puzzle.id}_#{grouping.id}" %>
   <%= link_to "Nevermind", puzzle_path(@puzzle), class: "wa-font-weight-bold wa-body-m wa-link-plain" %>
-</div>
 
-<%= form_with(model: [@puzzle, grouping], id: "edit_#{@puzzle.id}_#{grouping.id}", style: "display: none;") do |form| %>
-  <% if grouping.errors.any? %>
-    <div style="color: red">
-      <h2><%= pluralize(grouping.errors.count, "error") %> prohibited this grouping from being saved:</h2>
+  <%= form_with(model: [@puzzle, grouping], id: "edit_#{@puzzle.id}_#{grouping.id}", style: "display: none;") do |form| %>
+    <% if grouping.errors.any? %>
+      <div style="color: red">
+        <h2><%= pluralize(grouping.errors.count, "error") %> prohibited this grouping from being saved:</h2>
 
-      <ul>
-        <% grouping.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
-    </div>
+        <ul>
+          <% grouping.errors.each do |error| %>
+            <li><%= error.full_message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
   <% end %>
-<% end %>
+</div>
