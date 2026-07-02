@@ -1,13 +1,18 @@
 <wa-badge style="font-size: var(--wa-font-size-s); background-color: var(--wa-color-<%= grouping.color %>-90);">
   <%= grouping.color.titleize %></wa-badge>
-<span><%= text_field_tag "grouping[common_thread]", grouping.common_thread, form: "edit_#{@puzzle.id}_#{grouping.id}" %></span>
-<span><%= text_field_tag "grouping[word_1]", grouping.word_1, form: "edit_#{@puzzle.id}_#{grouping.id}" %></span>
-<span><%= text_field_tag "grouping[word_2]", grouping.word_2, form: "edit_#{@puzzle.id}_#{grouping.id}" %></span>
-<span><%= text_field_tag "grouping[word_3]", grouping.word_3, form: "edit_#{@puzzle.id}_#{grouping.id}" %></span>
-<span><%= text_field_tag "grouping[word_4]", grouping.word_4, form: "edit_#{@puzzle.id}_#{grouping.id}" %></span>
+<wa-input name="grouping[common_thread]" value="<%= grouping.common_thread %>"
+  form="<%= "edit_#{@puzzle.id}_#{grouping.id}" %>" size="s" style="width: 25ch;"></wa-input>
+<wa-input name="grouping[word_1]" value="<%= grouping.word_1 %>"
+  form="<%= "edit_#{@puzzle.id}_#{grouping.id}" %>" size="s" style="width: 20ch;"></wa-input>
+<wa-input name="grouping[word_2]" value="<%= grouping.word_2 %>"
+  form="<%= "edit_#{@puzzle.id}_#{grouping.id}" %>" size="s" style="width: 20ch;"></wa-input>
+<wa-input name="grouping[word_3]" value="<%= grouping.word_3 %>"
+  form="<%= "edit_#{@puzzle.id}_#{grouping.id}" %>" size="s" style="width: 20ch;"></wa-input>
+<wa-input name="grouping[word_4]" value="<%= grouping.word_4 %>"
+  form="<%= "edit_#{@puzzle.id}_#{grouping.id}" %>" size="s" style="width: 20ch;"></wa-input>
 <div>
   <%= submit_tag "Submit", form: "edit_#{@puzzle.id}_#{grouping.id}" %>
-  <wa-button href="<%= puzzle_path(@puzzle) %>" form="<%= "edit_#{@puzzle.id}_#{grouping.id}" %>">Nevermind</wa-button>
+  <%= link_to "Nevermind", puzzle_path(@puzzle), class: "wa-font-weight-bold wa-body-m wa-link-plain" %>
 </div>
 
 <%= form_with(model: [@puzzle, grouping], id: "edit_#{@puzzle.id}_#{grouping.id}", style: "display: none;") do |form| %>
