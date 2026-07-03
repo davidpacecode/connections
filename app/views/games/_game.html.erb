@@ -19,7 +19,7 @@
     <span>Create groups of four!</span>
     <div class="wa-grid" style="grid-template-columns: repeat(4, 1fr);">
       <% 16.times do |i| %>
-        <div><%= i.to_s %></div>
+        <div><%= @words[i] %></div>
       <% end %>
     </div>
     <span>Mistakes remaining</span>

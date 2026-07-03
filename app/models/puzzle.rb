@@ -10,6 +10,15 @@ class Puzzle < ApplicationRecord
 
   after_create :create_groupings
 
+  def randomized_words
+    words = []
+    self.groupings.each do |grouping|
+      4.times do |i|
+        words << "grouping.word_#{i+1}"
+      end
+    end
+  end
+
   private
 
     def create_groupings
