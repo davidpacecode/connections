@@ -1,8 +1,9 @@
 Rails.application.routes.draw do
-  resources :guesses
-  resources :games
   resources :puzzles do
     resources :groupings
+  end
+  resources :games do
+    resources :guesses
   end
   resource :session
   resources :passwords, param: :token

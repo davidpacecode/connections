@@ -19,7 +19,8 @@
       <div>
         <%= link_to "View", puzzle, class: "wa-link-plain" %>
         <%= link_to "Delete", puzzle, class: "wa-link-plain", data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
-        <%= link_to root_path do %><wa-tag variant="success" size="s" pill>Play!</wa-tag><% end -%>
+        <%= button_to "Play!", games_path, params: { "game[puzzle_id]": puzzle.id, "game[user_id]": Current.user.id,
+          "game[status]": :in_progress } %>
       </div>
     <% end %>
   </div>
