@@ -15,11 +15,19 @@
     <%= game.status %>
   </div>
 
+  <div data-controller="selection" >
+    <button data-action="click->selection#toggle_appearance">Do something</button>
+    <div>
+      <span>Output goes here...</span>
+      <span data-selection-target="output" type="text"></span>
+    </div>
+  </div>
+ 
   <div class="wa-stack wa-align-items-center">
     <span>Create groups of four!</span>
     <div class="wa-grid" style="grid-template-columns: repeat(4, 1fr);">
       <% 16.times do |i| %>
-        <wa-card class="card-basic" data-selection-target="appearance" type="text" data-controller="selection" data-action="click->selection#toggle_appearance">
+        <wa-card>
           <%= @words[i] %>
         </wa-card>
       <% end %>
