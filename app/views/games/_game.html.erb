@@ -19,7 +19,9 @@
     <span>Create groups of four!</span>
     <div class="wa-grid" style="grid-template-columns: repeat(4, 1fr);">
       <% 16.times do |i| %>
-        <div><%= @words[i] %></div>
+        <wa-card class="card-basic">
+          <%= @words[i] %>
+        </wa-card>
       <% end %>
     </div>
     <span>Mistakes remaining</span>

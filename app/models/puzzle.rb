@@ -14,9 +14,10 @@ class Puzzle < ApplicationRecord
     words = []
     self.groupings.each do |grouping|
       4.times do |i|
-        words << "grouping.word_#{i+1}"
+        words << grouping.public_send(:"word_#{i+1}")
       end
     end
+    words
   end
 
   private
