@@ -17,7 +17,7 @@ class Puzzle < ApplicationRecord
         words << grouping.public_send(:"word_#{i+1}")
       end
     end
-    words
+    words.shuffle
   end
 
   private

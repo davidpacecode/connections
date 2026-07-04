@@ -5,7 +5,15 @@ export default class extends Controller {
   static targets = [ "output" ]
 
   toggle_appearance() {
-    this.outputTarget.textContent =
-      `Hello, world!`
+    const card = event.currentTarget
+
+    if (card.getAttribute("appearance") === "accent") {
+      card.removeAttribute("appearance")
+    } else {
+      card.setAttribute("appearance", "accent")
+    }
+
+    // this.outputTarget.textContent =
+    //  `appearance=\"accent\"`
   }
 }
