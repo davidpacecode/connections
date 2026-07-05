@@ -27,10 +27,10 @@
       <% end %>
     </div>
     <span>Mistakes remaining</span>
-    <div class="wa-cluster">
-      <wa-button size="m" pill>Shuffle</wa-button>
-      <wa-button size="m" pill>Deselect All</wa-button>
-      <wa-button size="m" pill>Submit</wa-button>
+    <div data-controller="selection" class="wa-cluster">
+      <wa-button data-selection-target="shuffle_button" size="m" pill>Shuffle</wa-button>
+      <wa-button disabled data-selection-target="deselect_button" size="m" pill>Deselect All</wa-button>
+      <wa-button disabled data-selection-target="submit_button" size="m" pill>Submit</wa-button>
     </div>
   </div>
 </div>
