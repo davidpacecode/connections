@@ -15,11 +15,11 @@
     <%= game.status %>
   </div>
 
-  <div class="wa-stack wa-align-items-center">
+  <div data-controller="selection" class="wa-stack wa-align-items-center">
     <span>Create groups of four!</span>
     <div class="wa-grid" style="grid-template-columns: repeat(4, 1fr);">
       <% 16.times do |i| %>
-        <div data-controller="selection">
+        <div>
           <wa-card data-action="click->selection#toggle_appearance">
             <%= @words[i] %>
           </wa-card>
@@ -27,7 +27,7 @@
       <% end %>
     </div>
     <span>Mistakes remaining</span>
-    <div data-controller="selection" class="wa-cluster">
+    <div class="wa-cluster">
       <wa-button data-selection-target="shuffle_button" size="m" pill>Shuffle</wa-button>
       <wa-button disabled data-selection-target="deselect_button" size="m" pill>Deselect All</wa-button>
       <wa-button disabled data-selection-target="submit_button" size="m" pill>Submit</wa-button>
