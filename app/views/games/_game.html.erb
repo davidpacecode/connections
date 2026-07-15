@@ -20,7 +20,7 @@
     <div class="wa-grid" style="grid-template-columns: repeat(4, 1fr);">
       <% 16.times do |i| %>
         <div>
-          <wa-card data-action="click->selection#toggle_appearance">
+          <wa-card data-selection-target="card" data-action="click->selection#toggle_appearance">
             <%= @words[i] %>
           </wa-card>
         </div>
@@ -29,7 +29,7 @@
     <span>Mistakes remaining</span>
     <div class="wa-cluster">
       <wa-button data-selection-target="shuffle_button" size="m" pill>Shuffle</wa-button>
-      <wa-button disabled data-selection-target="deselect_button" size="m" pill>Deselect All</wa-button>
+      <wa-button disabled data-selection-target="deselect_button" data-action="click->selection#deselect_all" size="m" pill>Deselect All</wa-button>
       <wa-button disabled data-selection-target="submit_button" size="m" pill>Submit</wa-button>
     </div>
   </div>

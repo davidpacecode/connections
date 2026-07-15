@@ -2,7 +2,7 @@ import { Controller } from "@hotwired/stimulus"
 
 // Connects to data-controller="selection"
 export default class extends Controller {
-  static targets = [ "output", "shuffle_button", "deselect_button", "submit_button" ]
+  static targets = [ "card", "output", "shuffle_button", "deselect_button", "submit_button" ]
   static values = { count: { type: Number, default: 0 } }
 
   toggle_appearance() {
@@ -32,5 +32,14 @@ export default class extends Controller {
 
     // this.outputTarget.textContent =
     //  `appearance=\"accent\"`
+  }
+
+  deselect_all() {
+    this.cardTargets.forEach((card) => {
+      card.removeAttribute("appearance")
+    })
+    this.countValue = 0;
+    this.deselect_buttonTarget.setAttribute("disabled", true)
+    this.submit_buttonTarget.setAttribute("disabled", true)
   }
 }
