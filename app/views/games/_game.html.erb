@@ -1,36 +1,42 @@
 <div id="<%= dom_id game %>">
+  <%= form_with(model: [@game, @guess] ) do |form| %>
+    <%= form.hidden_field :words, multiple: true, id: nil, data: { selection_target: "word_input" } %>
+    <%= form.hidden_field :words, multiple: true, id: nil, data: { selection_target: "word_input" } %>
+    <%= form.hidden_field :words, multiple: true, id: nil, data: { selection_target: "word_input" } %>
+    <%= form.hidden_field :words, multiple: true, id: nil, data: { selection_target: "word_input" } %>
 
-  <div>
-    <strong>User:</strong>
-    <%= game.user_id %>
-  </div>
-
-  <div>
-    <strong>Puzzle:</strong>
-    <%= game.puzzle_id %>
-  </div>
-
-  <div>
-    <strong>Status:</strong>
-    <%= game.status %>
-  </div>
-
-  <div data-controller="selection" class="wa-stack wa-align-items-center">
-    <span>Create groups of four!</span>
-    <div class="wa-grid" style="grid-template-columns: repeat(4, 1fr);">
-      <% 16.times do |i| %>
-        <div>
-          <wa-card data-selection-target="card" data-action="click->selection#toggle_appearance">
-            <%= @words[i] %>
-          </wa-card>
-        </div>
-      <% end %>
+    <div>
+      <strong>User:</strong>
+      <%= game.user_id %>
     </div>
-    <span>Mistakes remaining</span>
-    <div class="wa-cluster">
-      <wa-button data-selection-target="shuffle_button" size="m" pill>Shuffle</wa-button>
-      <wa-button disabled data-selection-target="deselect_button" data-action="click->selection#deselect_all" size="m" pill>Deselect All</wa-button>
-      <wa-button disabled data-selection-target="submit_button" size="m" pill>Submit</wa-button>
+
+    <div>
+      <strong>Puzzle:</strong>
+      <%= game.puzzle_id %>
     </div>
-  </div>
+
+    <div>
+      <strong>Status:</strong>
+      <%= game.status %>
+    </div>
+
+    <div data-controller="selection" class="wa-stack wa-align-items-center">
+      <span>Create groups of four!</span>
+      <div class="wa-grid" style="grid-template-columns: repeat(4, 1fr);">
+        <% 16.times do |i| %>
+          <div>
+            <wa-card data-selection-target="card" data-action="click->selection#toggle_selection">
+              <%= @words[i] %>
+            </wa-card>
+          </div>
+        <% end %>
+      </div>
+      <span>Mistakes remaining</span>
+      <div class="wa-cluster">
+        <wa-button data-selection-target="shuffle_button" size="m" pill>Shuffle</wa-button>
+        <wa-button disabled data-selection-target="deselect_button" data-action="click->selection#deselect_all" size="m" pill>Deselect All</wa-button>
+        <wa-button disabled data-selection-target="submit_button" size="m" pill>Submit</wa-button>
+      </div>
+    </div>
+  <% end %>
 </div>

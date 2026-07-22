@@ -2,10 +2,10 @@ import { Controller } from "@hotwired/stimulus"
 
 // Connects to data-controller="selection"
 export default class extends Controller {
-  static targets = [ "card", "output", "shuffle_button", "deselect_button", "submit_button" ]
+  static targets = [ "word_input", "card", "shuffle_button", "deselect_button", "submit_button" ]
   static values = { count: { type: Number, default: 0 } }
 
-  toggle_appearance() {
+  toggle_selection() {
     const card = event.currentTarget
 
     if (card.getAttribute("appearance") === "accent") {
@@ -29,9 +29,6 @@ export default class extends Controller {
     } else {
       this.deselect_buttonTarget.setAttribute("disabled", true)
     }
-
-    // this.outputTarget.textContent =
-    //  `appearance=\"accent\"`
   }
 
   deselect_all() {

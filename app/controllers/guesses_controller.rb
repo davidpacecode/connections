@@ -65,6 +65,6 @@ class GuessesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def guess_params
-      params.expect(guess: [ :game_id, :word_1, :word_2, :word_3, :word_4, :grouping_id ])
+      params.expect(guess: [ :game_id, :grouping_id, words: [] ])
     end
 end
