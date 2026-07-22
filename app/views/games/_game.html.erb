@@ -1,9 +1,5 @@
 <div id="<%= dom_id game %>">
   <%= form_with(model: [@game, @guess] ) do |form| %>
-    <%= form.hidden_field :words, multiple: true, id: nil, data: { selection_target: "word_input" } %>
-    <%= form.hidden_field :words, multiple: true, id: nil, data: { selection_target: "word_input" } %>
-    <%= form.hidden_field :words, multiple: true, id: nil, data: { selection_target: "word_input" } %>
-    <%= form.hidden_field :words, multiple: true, id: nil, data: { selection_target: "word_input" } %>
 
     <div>
       <strong>User:</strong>
@@ -37,6 +33,10 @@
         <wa-button disabled data-selection-target="deselect_button" data-action="click->selection#deselect_all" size="m" pill>Deselect All</wa-button>
         <wa-button disabled data-selection-target="submit_button" size="m" pill>Submit</wa-button>
       </div>
+      <%= form.hidden_field :words, multiple: true, id: nil, data: { selection_target: "word_input" } %>
+      <%= form.hidden_field :words, multiple: true, id: nil, data: { selection_target: "word_input" } %>
+      <%= form.hidden_field :words, multiple: true, id: nil, data: { selection_target: "word_input" } %>
+      <%= form.hidden_field :words, multiple: true, id: nil, data: { selection_target: "word_input" } %>
     </div>
   <% end %>
 </div>
