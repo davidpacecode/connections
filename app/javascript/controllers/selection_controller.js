@@ -2,7 +2,7 @@ import { Controller } from "@hotwired/stimulus"
 
 // Connects to data-controller="selection"
 export default class extends Controller {
-  static targets = [ "word_input", "card", "shuffle_button", "deselect_button", "submit_button" ]
+  static targets = [ "word_input", "output", "card", "shuffle_button", "deselect_button", "submit_button" ]
   static values = { count: { type: Number, default: 0 } }
 
   toggle_selection() {
@@ -15,6 +15,10 @@ export default class extends Controller {
       if (this.countValue !== 4) {
         card.setAttribute("appearance", "accent")
         this.countValue++;
+
+        this.outputTarget.textContent += card.textContent;
+
+        console.log(this)
       }
     }
 
