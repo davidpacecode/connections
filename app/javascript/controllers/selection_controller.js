@@ -11,11 +11,18 @@ export default class extends Controller {
     if (card.getAttribute("appearance") === "accent") {
       card.removeAttribute("appearance")
       this.countValue--;
+
+
+      // remove the deselected word from the word_input list
+      const input = this.word_inputTargets.find((item) => item.value === card.textContent)
+      input.value = ""
+
     } else {
         if (this.countValue !== 4) {
           card.setAttribute("appearance", "accent")
           this.countValue++;
 
+          // set the word input to the selected word
           const input = this.word_inputTargets.find((item) => item.value === "")
           input.value = card.textContent
           this.outputTarget.textContent = input.value
@@ -33,14 +40,22 @@ export default class extends Controller {
     } else {
       this.deselect_buttonTarget.setAttribute("disabled", true)
     }
-    console.log(this.countValue)
-    console.log(this)
+
+    // write the input_words to the console
+    this.word_inputTargets.forEach((input) => {
+      console.log(input.value)
+    })
   }
 
   deselect_all() {
     this.cardTargets.forEach((card) => {
       card.removeAttribute("appearance")
     })
+
+    this.word_inputTargets.forEach((input) => {
+      input.value = ""
+    })
+
     this.countValue = 0;
     this.deselect_buttonTarget.setAttribute("disabled", true)
     this.submit_buttonTarget.setAttribute("disabled", true)
