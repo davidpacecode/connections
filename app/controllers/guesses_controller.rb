@@ -1,5 +1,6 @@
 class GuessesController < ApplicationController
   before_action :set_guess, only: %i[ show edit update destroy ]
+  before_action :set_game, only: %i[ create ]
 
   # GET /guesses or /guesses.json
   def index
@@ -21,11 +22,11 @@ class GuessesController < ApplicationController
 
   # POST /guesses or /guesses.json
   def create
-    @guess = Guess.new(guess_params)
+    @guess = @game.guesses.build(guess_params)
 
     respond_to do |format|
       if @guess.save
-        format.html { redirect_to @guess, notice: "Guess was successfully created." }
+        format.html { redirect_to @game, notice: "Guess was successfully created." }
         format.json { render :show, status: :created, location: @guess }
       else
         format.html { render :new, status: :unprocessable_content }
@@ -61,6 +62,10 @@ class GuessesController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_guess
       @guess = Guess.find(params.expect(:id))
+    end
+
+    def set_game
+      @game = Game.find(params[:game_id])
     end
 
     # Only allow a list of trusted parameters through.
