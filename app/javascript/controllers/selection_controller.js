@@ -12,14 +12,14 @@ export default class extends Controller {
       card.removeAttribute("appearance")
       this.countValue--;
     } else {
-      if (this.countValue !== 4) {
-        card.setAttribute("appearance", "accent")
-        this.countValue++;
+        if (this.countValue !== 4) {
+          card.setAttribute("appearance", "accent")
+          this.countValue++;
 
-        this.outputTarget.textContent += card.textContent;
-
-        console.log(this)
-      }
+          const input = this.word_inputTargets.find((item) => item.value === "")
+          input.value = card.textContent
+          this.outputTarget.textContent = input.value
+        }
     }
 
     if (this.countValue === 4) {
@@ -33,6 +33,8 @@ export default class extends Controller {
     } else {
       this.deselect_buttonTarget.setAttribute("disabled", true)
     }
+    console.log(this.countValue)
+    console.log(this)
   }
 
   deselect_all() {
