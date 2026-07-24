@@ -1,5 +1,5 @@
 <div id="<%= dom_id game %>">
-  <%= form_with(model: [@game, @guess] ) do |form| %>
+  <%= form_with(model: [@game, @guess], url: game_guesses_path(@game)) do |form| %>
 
     <div>
       <strong>User:</strong>
@@ -31,7 +31,7 @@
       <div class="wa-cluster">
         <wa-button data-selection-target="shuffle_button" size="m" pill>Shuffle</wa-button>
         <wa-button disabled data-selection-target="deselect_button" data-action="click->selection#deselect_all" size="m" pill>Deselect All</wa-button>
-        <wa-button disabled data-selection-target="submit_button" size="m" pill>Submit</wa-button>
+        <wa-button disabled data-selection-target="submit_button" size="m" pill type="submit">Submit</wa-button>
       </div>
       <span data-selection-target="output">
       </span>
